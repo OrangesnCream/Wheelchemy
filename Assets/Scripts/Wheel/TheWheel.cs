@@ -203,7 +203,7 @@ public class TheWheel : MonoBehaviour
         {
             Vector3 dir = directions[UnityEngine.Random.Range(0, directions.Count)];
             
-            _valueMappings.Add(dir, baseNumbers[i]);
+            _valueMappings.Add(dir, baseNumbers[i]);// add code here to track where each thing will go to show icon and info 
             directions.Remove(dir);
         }
         
