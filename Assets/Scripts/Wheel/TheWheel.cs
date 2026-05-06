@@ -38,8 +38,11 @@ public class TheWheel : MonoBehaviour
     [SerializeField] private Transform selector; // players input to move this -- controlled by sending a Vector into the ProcessInput function
     [SerializeField] private Transform sliceGimbal; // this is the thing that actually gets rotated
     
-    [SerializeField] private int[] baseNumbers = new int[] { -2, -1, 1, 2 }; // order these from lowest value to greatest
-    [SerializeField] private int[] sliceValues = new int[] { 1, 2, 3, 4 }; // these should also be lowest to greatest
+    [SerializeField] private int[] baseNumbers = new int[] { -2, -1, 1, 2 }; //these are going to be my ingredients -oranges,  order these from lowest value to greatest
+    [SerializeField] private int[] sliceValues = new int[] { 1, 2, 3, 4 }; // these are still going to be my multipliers -oranges, these should also be lowest to greatest
+    public int[] returnedArray=new int[]{1,1,1,1};
+
+
 
     [SerializeField] private AnimationCurve curve; // used to evaluate how the turn animates
     
@@ -284,7 +287,7 @@ public class TheWheel : MonoBehaviour
     private WheelPayload GetCurrentWheelValue()
     {
         WheelPayload wp = new WheelPayload();
-        
+        int index=0;
         foreach (KeyValuePair<Vector3, int> kvp in _valueMappings)
         {
             if ((int)selector.eulerAngles.z == (int)kvp.Key.z)
@@ -293,13 +296,17 @@ public class TheWheel : MonoBehaviour
                 {
                     if ((int)slices[i].eulerAngles.z == (int)kvp.Key.z)
                     {
+                        
                         wp.BaseValue = kvp.Value;
                         wp.SliceValue = sliceValues[i];
                         wp.TotalValue = wp.BaseValue * wp.SliceValue;
+                        returnedArray[index]=wp.TotalValue;
+
                         return wp;
                     }
                 }
             }
+            index++;
         }
         
         return null; // you fricked up
