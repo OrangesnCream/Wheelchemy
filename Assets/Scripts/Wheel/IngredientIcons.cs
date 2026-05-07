@@ -27,11 +27,6 @@ public class IngredientIcons : MonoBehaviour
     //updates images next to the wheel 
     public void SetImages()
     {
-        if (wheel._valueMappings == null)
-        {
-            Debug.Log("?????? chicken before egg");
-            return;
-        }
         foreach (KeyValuePair<Vector3, int> kvp in wheel._valueMappings)
         {
             ItemObject ingredientObj=itemInv.GetByName(gameState.GetActiveIngredient(kvp.Value));

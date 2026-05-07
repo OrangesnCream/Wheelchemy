@@ -10,7 +10,12 @@ public class ItemInventory : ScriptableObject
     {
         foreach (ItemObject item in items)
             if (item.itemName == name) return item;
-        Debug.Log("Item not found");
+        Debug.Log("Item not found: "+name);
         return null;
+    }
+    public ItemObject GetRandom()
+    {
+        if (items == null || items.Length == 0) return null;
+        return items[Random.Range(0, items.Length-1)];
     }
 }

@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheel: {fileID: 1536699014}
   thePot: {fileID: 1384214240}
+  itemInv: {fileID: 11400000, guid: 915bf2f57e0ecfc4eaf9909c2208a3cd, type: 2}
 --- !u!4 &247649805
 Transform:
   m_ObjectHideFlags: 0
