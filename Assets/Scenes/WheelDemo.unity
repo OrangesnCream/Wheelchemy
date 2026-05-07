@@ -1162,6 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theWheel: {fileID: 1536699014}
+  gameState: {fileID: 247649804}
   output: {fileID: 1477736454}
 --- !u!1 &1895476216
 GameObject:

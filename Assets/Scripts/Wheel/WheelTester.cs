@@ -8,6 +8,7 @@ public class WheelTester : MonoBehaviour
 {
     // THIS IS HOW YOU LEARN TO WHEEL
     [SerializeField] private TheWheel theWheel;
+    [SerializeField] private GameStateManager gameState;
     [SerializeField] private TextMeshProUGUI output;
 
     private void Awake()
@@ -24,24 +25,9 @@ public class WheelTester : MonoBehaviour
     {
         string outputString = string.Empty;
         
-        switch (payload.BaseValue)
-        {
-            case -2:
-                outputString += "-2 >:(";
-                break;
-            case -1:
-                outputString += "-1 :(";
-                break;
-            case 1:
-                outputString += "1 :)";
-                break;
-            case 2:
-                outputString += "2 :D";
-                break;
-            default:
-                outputString += $"{payload.BaseValue}????";
-                break;
-        }
+
+        outputString += $"{gameState.GetActiveIngredient(payload.BaseValue)}????";
+       
 
         outputString += "\nSlice multiplier: ";
         switch (payload.SliceValue)
