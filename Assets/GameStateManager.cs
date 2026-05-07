@@ -17,7 +17,12 @@ public class GameStateManager : MonoBehaviour
     };//used for testing, this should be sent to the wheel
     void Start()
     {
-        
+        StartCoroutine(WaitForMapping());
+    }
+    IEnumerator WaitForMapping()
+    {
+        yield return new WaitUntil(() => wheel._valueMappings.Count > 0);
+        wheel.GetComponentInChildren<IngredientIcons>().SetImages();
     }
 
     // Update is called once per frame
@@ -29,6 +34,7 @@ public class GameStateManager : MonoBehaviour
     {
 
         wheel.Reset();
+        wheel.GetComponentInChildren<IngredientIcons>().SetImages();
         for(int i = 0; i < 4; i++)
         {
             thePot.AddIngredient(tempList[i].name,wheel.returnedArray[i]);

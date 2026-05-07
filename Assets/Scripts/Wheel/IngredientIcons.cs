@@ -13,35 +13,29 @@ public class IngredientIcons : MonoBehaviour
     public GameObject South;
     public GameObject East;
     public GameObject West;
-    int testInt=0;
-    bool testBool=true;
     void Start()
     {
         wheel=GetComponentInParent<TheWheel>();
         gameState = FindObjectOfType<GameStateManager>();
-        //SetImages();
     }
     // Update is called once per frame
     void Update()
     {
-        if (testInt >500)
-        {
-            if(testBool)
-                SetImages();
-            testBool=false;
-        }
-        else
-        {
-            testInt++;
-        }
+        
     }
 
     //updates images next to the wheel 
     public void SetImages()
     {
+        if (wheel._valueMappings == null)
+        {
+            Debug.Log("?????? chicken before egg");
+            return;
+        }
         foreach (KeyValuePair<Vector3, int> kvp in wheel._valueMappings)
         {
             ItemObject ingredientObj=itemInv.GetByName(gameState.GetActiveIngredient(kvp.Value));
+            
             switch ((int)kvp.Key.z)
             {
             

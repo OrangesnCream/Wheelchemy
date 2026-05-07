@@ -47,7 +47,7 @@ public class TheWheel : MonoBehaviour
 
     [SerializeField] private AnimationCurve curve; // used to evaluate how the turn animates
     
-    public Dictionary<Vector3, int> _valueMappings; // Now ties base number index, math for actual values will be run in cauldron 
+    public Dictionary<Vector3, int> _valueMappings= new Dictionary<Vector3, int>(); // Now ties base number index, math for actual values will be run in cauldron 
     private WheelState _state = WheelState.AwaitingSelection; // don't touch this unless you know what you're doing lol
     private int _numSelections = 0; // how many selections total have been made
     private WheelPayload _currentValue; // this is the actual current value selected
@@ -65,6 +65,7 @@ public class TheWheel : MonoBehaviour
 
     private void Start()
     {
+        
         Reset(); // all the setup is contained in reset
 
     }
@@ -161,7 +162,7 @@ public class TheWheel : MonoBehaviour
                 if (!c.gameObject.activeSelf)
                 {
                     c.gameObject.SetActive(true);
-                    //im doign this because I am lazy, this kind of sucks but its a game jam
+                    //im doing this because I am lazy, this kind of sucks but its a game jam- Oranges
                     returnedArray[_currentValue.BaseValue]=_currentValue.SliceValue;
                     Rotate();
                     _numSelections++;
