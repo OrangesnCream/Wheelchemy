@@ -161,6 +161,8 @@ public class TheWheel : MonoBehaviour
                 if (!c.gameObject.activeSelf)
                 {
                     c.gameObject.SetActive(true);
+                    //im doign this because I am lazy, this kind of sucks but its a game jam
+                    returnedArray[_currentValue.BaseValue]=_currentValue.SliceValue;
                     Rotate();
                     _numSelections++;
                     return;
@@ -205,8 +207,7 @@ public class TheWheel : MonoBehaviour
         {
             Vector3 dir = directions[UnityEngine.Random.Range(0, directions.Count)];
             
-            _valueMappings.Add(dir, i);
-            
+            _valueMappings.Add(dir, i);//this used to add base value[i]
             directions.Remove(dir);
         }
         
@@ -290,7 +291,7 @@ public class TheWheel : MonoBehaviour
     private WheelPayload GetCurrentWheelValue()
     {
         WheelPayload wp = new WheelPayload();
-        int index=0;
+        
         foreach (KeyValuePair<Vector3, int> kvp in _valueMappings)
         {
             if ((int)selector.eulerAngles.z == (int)kvp.Key.z)
@@ -303,13 +304,13 @@ public class TheWheel : MonoBehaviour
                         wp.BaseValue = kvp.Value;
                         wp.SliceValue = sliceValues[i];
                         wp.TotalValue = wp.BaseValue * wp.SliceValue;
-                        returnedArray[index]=sliceValues[i];
+                        
 
                         return wp;
                     }
                 }
             }
-            index++;
+            
         }
         
         return null; // you fricked up

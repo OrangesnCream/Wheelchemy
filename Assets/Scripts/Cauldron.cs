@@ -9,9 +9,7 @@ public class Cauldron : MonoBehaviour
     void Start()
     {
 
-        AddIngredient("Blue",3);
-        Debug.Log("Name "+ingredientList[0].name);
-        Debug.Log("potency "+ingredientList[0].potency);
+        
     }
 
     // Update is called once per frame
