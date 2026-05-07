@@ -41,12 +41,13 @@ public class TheWheel : MonoBehaviour
     [SerializeField] private int[] baseNumbers = new int[] { -2, -1, 1, 2 }; //these are going to be my ingredients -oranges,  order these from lowest value to greatest
     [SerializeField] private int[] sliceValues = new int[] { 1, 2, 3, 4 }; // these are still going to be my multipliers -oranges, these should also be lowest to greatest
     public int[] returnedArray=new int[]{1,1,1,1};
+    public GameStateManager gameManger;
 
 
 
     [SerializeField] private AnimationCurve curve; // used to evaluate how the turn animates
     
-    private Dictionary<Vector3, int> _valueMappings; // this gets set in Awake -- ties a direction to a baseNumber value randomly
+    public Dictionary<Vector3, int> _valueMappings; // Now ties base number index, math for actual values will be run in cauldron 
     private WheelState _state = WheelState.AwaitingSelection; // don't touch this unless you know what you're doing lol
     private int _numSelections = 0; // how many selections total have been made
     private WheelPayload _currentValue; // this is the actual current value selected
@@ -65,6 +66,7 @@ public class TheWheel : MonoBehaviour
     private void Start()
     {
         Reset(); // all the setup is contained in reset
+
     }
     
     // throw this out and use unity's new input system or whatever plugin you decide, get your input, and pass it off through the ProcessDirectionInput() and ProcessConfirmInput() methods; this is only here for demonstration purposes and is inefficient and inflexible
@@ -203,7 +205,8 @@ public class TheWheel : MonoBehaviour
         {
             Vector3 dir = directions[UnityEngine.Random.Range(0, directions.Count)];
             
-            _valueMappings.Add(dir, baseNumbers[i]);// add code here to track where each thing will go to show icon and info 
+            _valueMappings.Add(dir, i);
+            
             directions.Remove(dir);
         }
         
@@ -300,7 +303,7 @@ public class TheWheel : MonoBehaviour
                         wp.BaseValue = kvp.Value;
                         wp.SliceValue = sliceValues[i];
                         wp.TotalValue = wp.BaseValue * wp.SliceValue;
-                        returnedArray[index]=wp.TotalValue;
+                        returnedArray[index]=sliceValues[i];
 
                         return wp;
                     }
