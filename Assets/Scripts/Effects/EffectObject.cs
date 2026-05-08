@@ -6,10 +6,6 @@ public class EffectObject : ScriptableObject
 {
    public string effectName;
     public Sprite icon;
-    public string firstItem;
-    public string secondItem;
-    public string comparison;
-     
-    
-   
+    public ItemObject largeItem;
+    public ItemObject smallItem;
 }

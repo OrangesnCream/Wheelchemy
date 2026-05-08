@@ -10,15 +10,22 @@ public class GameStateManager : MonoBehaviour
     public TheWheel wheel;
     public Cauldron thePot;
     public ItemInventory itemInv;
+
+    //check if we have chosen the items first
+    private bool wheelScene=false;
+    private bool sceneStarted=false;
+
+
     private HashSet<string> usedItems = new HashSet<string>();
 
 
     private List<(string name,int potency)> currentItems=new List<(string name, int potency)>();
     private (string reqEffect,int reqPotency) testRequest=("Slow",3);
 
+
     void Start()
     {
-        GatherItems(testRequest.reqEffect);
+        GatherItems();
         StartCoroutine(WaitForMapping());
     }
     IEnumerator WaitForMapping()
@@ -30,7 +37,7 @@ public class GameStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
     public void wheelFinished()
     {
@@ -41,7 +48,7 @@ public class GameStateManager : MonoBehaviour
             thePot.AddIngredient(currentItems[i].name,wheel.returnedArray[i]);
         }
         thePot.testPrint();
-        GatherItems(testRequest.reqEffect);
+        GatherItems();
         wheel.GetComponentInChildren<IngredientIcons>().SetImages();
 
 
@@ -55,36 +62,17 @@ public class GameStateManager : MonoBehaviour
         }
         return currentItems[index].name;
     }
-    private void GatherItems(string effect)
+    private void GatherItems()
     {
-       
+       //replace with an actual call from the UI that returns the user selection 
         currentItems.Clear();
         int listCount=0;
         while(listCount<4){
             ItemObject temp= ScriptableObject.CreateInstance<ItemObject>();
             temp=itemInv.GetRandom();
-            if (usedItems.Contains(temp.itemName)||temp.itemName=="Purify"
-            ||temp.itemName=="Concentrate"||temp.itemName=="Stabilize"||temp.itemName=="Distill")
-            {
-                
-                continue;
-            }
-            if (temp.itemEffect == effect && listCount == 0)
-            {
                 currentItems.Add((temp.itemName,1));
                 usedItems.Add(temp.itemName);
                 listCount++;
-                
-                continue;
-            }
-            if (listCount>0)
-            {
-                
-                currentItems.Add((temp.itemName,1));
-                usedItems.Add(temp.itemName);
-                listCount++;
-            }
-
         }
 
     }

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77a73c3e22412744bc3f8805d10aa97, type: 3}
+  m_Name: Bob
+  m_EditorClassIdentifier: 
+  customerName: bob
+  Icon: {fileID: 21300000, guid: fe304ebbf883a42448492ddfef872e57, type: 3}
+  startingDialogue:
+  - I want to explode
+  - DON'T MAKE ME FALL IN LOVE
+  happyDialogue:
+  - Thank you sir!
+  - Here is your payment!
+  sadDialogue:
+  - 'oh '
+  - this is not satisfactory
+  - make what I ordered
+  angryDialogue:
+  - I LOVE YOU !!!!!!!!!
+  requestedEffects:
+  - {fileID: 11400000, guid: dcaa6776180accf4b99032ce73253d5e, type: 2}
+  unwantedEffects:
+  - {fileID: 11400000, guid: 7f0359f1ead38d649afc7cdd3ba3adef, type: 2}
