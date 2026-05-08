@@ -22,5 +22,9 @@ public class NextScene : MonoBehaviour
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextIndex);
     }
+    public void LoadNextByName(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
     
 }

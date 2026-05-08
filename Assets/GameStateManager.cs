@@ -21,7 +21,7 @@ public class GameStateManager : MonoBehaviour
 
     void Start()
     {
-        SimulateCustomerPick();
+        //SimulateCustomerPick();
         currentItems=GameData.itemMenuSelections;
         StartCoroutine(WaitForMapping());
         
@@ -102,11 +102,13 @@ public class GameStateManager : MonoBehaviour
         GameData.customerResponse=response;
         GameData.newPotion=theDrink;
     }
+    /*
     public void SimulateCustomerPick()
     {
 
         GameData.activeCustomer= wallets.GetByName("Bob");
     }
+    */
     public void LoadNextScene()
     {
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
