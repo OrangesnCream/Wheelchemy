@@ -31,22 +31,22 @@ public class Cauldron : MonoBehaviour
     }
     //takes all the ingredient math and spits out a potion 
 
-    public Potion Brew()
+    public void Brew()
     {
         //might need to change plan if doing multiple rounds
-        //apply modifiers to all the relevant effects
-        //check the elements for interactions
-        //add new effects to potion
-        //check all effects for interactions
-        //flag any catastrophic events 
-        //apply negations 
-        //apply amplifications
+        
+
+
+
+        //check all ingredients for interactions 
         //add all effects to the potion 
-        //find most major effect
-        //find relevant minor effects (subjective, minor sleep is not worth mentioning, minor invisibility is)
+        
         //send to GSM
-        return null;
+    
     }
+
+
+
 }
 public class Potion
 {

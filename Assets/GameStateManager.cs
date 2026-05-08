@@ -41,7 +41,7 @@ public class GameStateManager : MonoBehaviour
             thePot.AddIngredient(currentItems[i].name,wheel.returnedArray[i]);
         }
         thePot.testPrint();
-        GatherModifiers();
+        GatherItems(testRequest.reqEffect);
         wheel.GetComponentInChildren<IngredientIcons>().SetImages();
 
 
@@ -87,13 +87,5 @@ public class GameStateManager : MonoBehaviour
 
         }
 
-    }
-    private void GatherModifiers()
-    {
-        currentItems.Clear();
-        currentItems.Add(("Purify",1));
-        currentItems.Add(("Concentrate",1));
-        currentItems.Add(("Stabilize",1));
-        currentItems.Add(("Distill",1));
     }
 }
