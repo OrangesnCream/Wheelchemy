@@ -57,13 +57,14 @@ public class Cauldron : MonoBehaviour
                     secondInt=ingredient.potency;
                 }
             }
-            if(firstInt>secondInt){
+            if(firstInt>secondInt&&firstInt!=-1&&secondInt!=-1){
+                Debug.Log("effect added:"+effect.effectName);
                 potion.potionEffects.Add(effect);
             }
 
         }
         potion.name=potionNames[Random.Range(0,potionNames.Count())];
-        potion.name+=" of "+ effectList.effects[Random.Range(0,effectList.effects.Count())];
+        potion.name+=" of "+ effectList.effects[Random.Range(0,effectList.effects.Count())].effectName;
         
         
         //send to GSM
@@ -77,6 +78,6 @@ public class Potion
 {
     //name is concat,  "Elixir(sweet medicine), Draught(beer), Tincture(extract in alcohol), Brew(evil), Mixture(neutral)," + " of " + majorEffect
     public string name;
-    public List<EffectObject> potionEffects;
+    public List<EffectObject> potionEffects=new List<EffectObject>();
 }
 

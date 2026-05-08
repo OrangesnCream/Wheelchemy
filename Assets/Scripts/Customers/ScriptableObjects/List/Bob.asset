@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77a73c3e22412744bc3f8805d10aa97, type: 3}
   m_Name: Bob
   m_EditorClassIdentifier: 
-  customerName: bob
+  customerName: Bob
   Icon: {fileID: 21300000, guid: fe304ebbf883a42448492ddfef872e57, type: 3}
   startingDialogue:
   - I want to explode

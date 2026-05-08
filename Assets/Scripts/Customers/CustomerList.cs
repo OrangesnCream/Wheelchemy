@@ -10,7 +10,7 @@ public class CustomerList : ScriptableObject
     {
         foreach (Customer customer in customers)
             if (customer.customerName == name) return customer;
-        Debug.Log("Effect not found: "+name);
+        Debug.Log("Customer not found: "+name);
         return null;
     }
 }
